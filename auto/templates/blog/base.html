@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{% static 'blog/css/styles.css' %}" rel="stylesheet" />
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<!--Главная верхняя панель-->
+<div class="header">
+    <div class="header-line">
+        <div class="header-logo">
+            <img src="{% static 'blog/images/logo.jpg' %}">
+        </div>
+
+        <div class="header-nav">
+        {% for m in menu %}
+                <div class="navitem">
+                    <a class='item' href="{% url m.url_name %}">{{ m.title }}</a>
+                </div>
+        {% endfor %}
+                {% if request.user.is_authenticated %}
+                <div class="navitem">
+                    <p class="item">{{ user.username }} | 
+                    <a class='item' href="{% url 'logout' %}">Выйти</a></p>
+                </div>
+                {% else %}
+                <div class="navitem">
+                    <a class='item' href="{% url 'register' %}">Регистрация</a> | 
+                    <a class='item' href="{% url 'login' %}">Войти</a>
+                </div>
+                {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- блок главного контента -->
+<div class="page">
+
+{% block content %}{% endblock %}
+
+<nav>
+    <ul>
+        {% for p in paginator.page_range %}
+        <li>
+            <a href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+
+</div>
+
+
+
+</body>
+</html>

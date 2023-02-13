@@ -1,0 +1,14 @@
+{% extends 'blog/base.html'%}
+{% load static %}
+
+{% block content %}
+<h1>{{ car.brd }} {{ car.title }} {{ car.btype }}</h1>
+
+{% if car.photo %}
+<p><img src="{{ car.photo.url }}"></p>
+{% else %}
+<p><img src="{% static 'blog/images/no_photo.png' %}"></p>
+{% endif %}
+
+{{ car.description }}
+{% endblock%}

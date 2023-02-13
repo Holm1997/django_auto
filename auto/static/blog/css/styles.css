@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+body {
+    background-color: rgb(189, 233, 235);
+    margin: 0px;
+}
+
+.header {
+    background-color: rgb(53, 61, 63);
+}
+
+.header-line {
+    display: flex;
+    margin: 0 20px;
+}
+
+.header-nav {
+    position: absolute;
+    right: 0;
+    display: flex;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.navitem {
+  display: block;
+  text-align: center;
+  margin: 20px;
+}
+
+.item {
+  color: rgb(7,242,229);
+  text-decoration: none;
+}
+
+.search-cars {
+  display: inline;
+  position: relative;
+
+}
+
+
+.sidebar li {
+  display: block;
+  font-size: 20px;
+}
+
+.mainmenu li a {
+  color:  rgb(8,243,228);
+}
+
+.page {
+  display: inline;
+  max-height: 100%;
+}
